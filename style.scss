@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+$color-primary: rgb(124 58 237);
+$font-01: 'JetBrains Mono', Verdana, Geneva, Tahoma, sans-serif;
+
+* {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: $font-01;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0px 16px;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        ul {
+            display: flex;
+            gap: 8px;
+
+            li {
+                list-style: none;
+            }
+        }
+    }
+
+    button {
+        background-color: $color-primary;
+        color: white;
+        font-size: 1.2em;
+    }
+}
+
+button {
+    border-radius: 9999px;
+    border: none;
+    padding: 0.25rem 0.8rem;
+}
+
+@media screen and (max-width:768px) {
+
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+
+}
+
+@media screen and (min-width:992px) {
+
+}
+
+#burger {
+    display: none;
+}
+
+#toggle {
+    position: relative;
+    width: 40px;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    height: calc(4px * 3 + 11px * 2);
+    
+    .bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: calc(4px / 2);
+        background: #7b52b9;
+        color: inherit;
+        opacity: 1;
+        transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
+    }
+}
