@@ -8,29 +8,35 @@
 </head>
 <body>
     <header>
-        <div>
-            <a href="">Logo</a>
-            <nav>
-                <ul>
+        <a href="">Logo</a>
+        <nav id="nav">
+            <ul>
+                <a href="">
                     <li>Habilidades</li>
+                </a>
+                <a href="">
                     <li>Sobre</li>
+                </a>
+                <a href="">
                     <li>Projetos</li>
-                </ul>
-            </nav>
-        </div>
-        <div>
-            <button id="contact-nav-btn">Contato</button>
-            <div id="menuToggle">
+                </a>
+            </ul>
+        </nav>
+        <button id="menuToggle">
+            Menu
+            <div id="menuBurger">
                 <input id="checkbox" type="checkbox">
                 <label class="toggle" for="checkbox">
-                    <div id="bar--top"></div>
-                    <div id="bar--middle"></div>
-                    <div id="bar--bottom"></div>
+                    <span class="bar bar--top"></span>
+                    <span class="bar bar--middle"></span>
+                    <span class="bar bar--bottom"></>
                 </label>
             </div>
-        </div>
+        </button>
     </header>
     <main></main>
     <footer></footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
