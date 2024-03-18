@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
   box-sizing: border-box;
   font-family: "JetBrains Mono", Verdana, Geneva, Tahoma, sans-serif;
   background-color: #f3f3f3;
@@ -24,52 +27,91 @@ header nav {
   right: 16px;
   top: 70px;
   border-radius: 8px;
-  padding: 8px;
+  height: 150px;
+  width: 175px;
+  padding: 16px;
+  transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+  overflow: hidden;
 }
 header nav ul {
   display: flex;
   flex-direction: column;
-  padding: 8px 16px;
-  gap: 16px;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+  padding: 0;
 }
 header nav ul a {
   text-decoration: none;
+  width: 100%;
+  padding: 8px 12px;
 }
-header nav ul li {
+header nav ul a li {
   list-style: none;
   color: white;
+}
+header nav ul a:hover {
+  background-color: rgb(66, 24, 139);
+  border-radius: 4px;
+}
+
+#menuToggle {
+  display: flex;
+  background-color: rgb(124, 58, 237);
+  font-size: 1em;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3em 0.3em 0.3em 0.8em;
+  width: 120px;
+  border-radius: 9999px;
+}
+#menuToggle div {
+  background-color: white;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+main:nth-child(1) {
+  height: calc(100% - 70px) !important;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
 }
 
 button {
   border-radius: 9999px;
   border: none;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
-@media screen and (min-width: 992px) {
-  #menuToggle {
-    display: flex;
-    background-color: rgb(124, 58, 237);
-    font-size: 1em;
-    color: white;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.3em 0.3em 0.3em 0.5em;
-  }
-  #menuToggle div {
-    background-color: white;
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-    margin-left: 8px;
-  }
-}
 button, a {
   cursor: pointer;
 }
 
 #checkbox {
   display: none;
+}
+#checkbox:checked + .toggle .bar--top {
+  transform: rotate(-135deg);
+  transition-delay: 0s;
+  bottom: calc(50% - 2px);
+}
+#checkbox:checked + .toggle .bar--middle {
+  opacity: 0;
+  transform: rotate(-135deg);
+  transition-delay: 0.105s;
+}
+#checkbox:checked + .toggle .bar--bottom {
+  top: calc(50% - 2px);
+  transform: rotate(-225deg);
+  transition-delay: 0.21s;
 }
 
 .toggle {
@@ -110,22 +152,88 @@ button, a {
   transition-delay: 0s;
 }
 
-#checkbox:checked + .toggle .bar--top {
-  transform: rotate(-135deg);
-  transition-delay: 0s;
-  bottom: calc(50% - 2px);
+.backtop-btn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 30px;
+  bottom: 30px;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(rgb(124, 58, 237), rgb(66, 24, 139));
+  border-radius: 50%;
+  border: none;
+  transition: opacity 0.3s ease-in-out;
 }
-
-#checkbox:checked + .toggle .bar--middle {
+.backtop-btn .arrow path {
+  fill: white;
+}
+.backtop-btn .backtop-text {
+  font-size: 0.7em;
+  width: 100px;
+  position: absolute;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -18px;
   opacity: 0;
-  transform: rotate(-135deg);
-  transition-delay: 0.105s;
+  transition-duration: 0.7s;
+}
+.backtop-btn:hover .backtop-text {
+  opacity: 1;
+  transition-duration: 0.7s;
+}
+.backtop-btn:hover .arrow {
+  animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
 }
 
-#checkbox:checked + .toggle .bar--bottom {
-  top: calc(50% - 2px);
-  transform: rotate(-225deg);
-  transition-delay: 0.21s;
+.showBacktoTop {
+  opacity: 1;
+}
+
+.hideBacktoTop {
+  opacity: 0;
+}
+
+.showNav {
+  opacity: 1;
+  animation: crescer 0.5s ease-in-out forwards;
+}
+
+.hideNav {
+  animation: esconder 0.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes crescer {
+  from {
+    display: block;
+    height: 0;
+  }
+  to {
+    height: 150px;
+  }
+}
+@keyframes esconder {
+  from {
+    height: 150px;
+  }
+  to {
+    height: 0;
+    display: none;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

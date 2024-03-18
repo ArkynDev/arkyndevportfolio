@@ -9,20 +9,20 @@
 <body>
     <header>
         <a href="">Logo</a>
-        <nav id="nav">
+        <nav id="nav" class="hideNav">
             <ul>
-                <a href="">
+                <a href="#" onclick="toSection()">
                     <li>Habilidades</li>
                 </a>
-                <a href="">
+                <a href="#" onclick="toSection()">
                     <li>Sobre</li>
                 </a>
-                <a href="">
+                <a href="#" onclick="toSection()">
                     <li>Projetos</li>
                 </a>
             </ul>
         </nav>
-        <button id="menuToggle">
+        <div id="menuToggle">
             Menu
             <div id="menuBurger">
                 <input id="checkbox" type="checkbox">
@@ -32,11 +32,22 @@
                     <span class="bar bar--bottom"></>
                 </label>
             </div>
-        </button>
+        </d>
     </header>
-    <main></main>
+    <main>
+        <section id="home">
+            <h1>Seção 01</h1>
+        </section>
+        <section>
+            <h1>Seção  02</h1>
+        </section>
+    </main>
     <footer></footer>
 
+    <button  id="backtop-btn" class="backtop-btn hideBacktoTop">
+        <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+        <p class="backtop-text">Back to Top</p>
+    </button>
     <script src="script.js"></script>
 </body>
 </html>
