@@ -2,7 +2,6 @@
 
 $color-primary: rgb(124 58 237);
 $color-secondary: rgb(66, 24, 139);
-$bg-01: #f3f3f3;
 $font-01: 'JetBrains Mono', Verdana, Geneva, Tahoma, sans-serif;
 
 *, *::before, *::after {
@@ -17,7 +16,6 @@ $font-01: 'JetBrains Mono', Verdana, Geneva, Tahoma, sans-serif;
 body {
     box-sizing: border-box;
     font-family: $font-01;
-    background-color: $bg-01;
 }
 
 header {
@@ -181,8 +179,6 @@ button, a { cursor: pointer; }
 }
 
 .backtop-btn {
-    position: fixed;
-    display: flex;
     align-items: center;
     justify-content: center;
     right: 30px;
